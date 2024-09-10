@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5 ">
+    
+    <form class= "col-6 mx-auto card p-5 shadow-lg " method= "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2 class="h2 text-center">LOGIN PAGE</h2>
+        {% if messages %}
+        <div class="alert alert-primary" role="alert">
+           {% for message in messages %}
+             <p>{{ message }}</p>
+           {% endfor %}
+</div>
+      {% endif %}
+
+        <hr>
+        <div class="form-group p-2">
+            <label for="name">Username</label>
+            <input type="text" name="username" class="form-control" required placeholder="Enter user name">
+        </div>
+        <div class="form-group p-2">
+            <label for="Description">Password</label>
+            <input type = "Password" name="password" class="form-control" placeholder="Enter Password">
+         
+        </div>
+        <p class="p p-2">Dont have account <a href="/register/" >Register</a></P>
+        <button type="submit" class="btn btn-success p-2">Login</button>
+    </form>
+    
+   
+   
+</div>
+
+{% endblock %}
